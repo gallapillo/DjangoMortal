@@ -26,7 +26,7 @@ SECRET_KEY = '6(m$f-*u&g_s60)7o$%qdxra-xck+4t!qpf^ls6293vu$)9+bw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['mortal-django.herokuapp.com']
 
 LOGIN_REDIRECT_URL = '/'
 REGISTER_REDIRECT_URL = '/'
