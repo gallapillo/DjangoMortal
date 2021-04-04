@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel='stylesheet' href={% static 'css/style.css' %}/>
+	<link rel='stylesheet' href={% static 'css/normalize.css' %}/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+</head>
+<body>
+    <div class="app" id="app" style="align-items: center;">
+    <header class="header">
+			<a class="logo" href="/">
+				<img alt="Логотип" class="logo-image" src={% static "img/logo.svg" %}/>
+			</a>
+    </header>
+        <div class="wrapper" style="padding-top: 140px;">
+            <h2 style="text-align: center; font-size: 32px;">Регистарция</h2>
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        <form action="" method="POST" style="align-items: center; text-align: center;">
+            {% csrf_token %}
+            {% for f in form %}
+                {{ f }}<br>
+                <div class="mt-15" style="margin-top: 15px;"></div>
+            {% endfor %}
+            <input type="submit" class="button button-primary" value="Регистрация" style="margin-bottom: 10px;">
+		</form>
+        <span style="text-align: center; display: block;">Уже есть аккаунт? <a  style="color: #EA6E20; text-decoration:none;" href={% url 'login' %} > Вход </a></span>
+        </div>
+    </div>
+</body>
+</html>

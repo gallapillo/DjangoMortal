@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mortal-Combat</title>
+	<link rel='stylesheet' href={% static 'css/style.css' %}/>
+	<link rel='stylesheet' href={% static 'css/normalize.css' %}/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+</head>
+<body>
+	<div class="app" id="app">
+		<header class="header">
+			<a class="logo" href="/">
+				<img alt="Логотип" class="logo-image" src={% static "img/logo.svg" %}/>
+			</a>
+            {% if user.is_authenticated %}
+			<div href="#" class="user">
+				<span class="user-name">{{ user }}</span>
+                <a style="text-decoration:none; color: #FFFFFF;" href={% url 'logout' %}>Выйти</a>
+			</div>
+            {% else %}
+                <div class="user">
+				<a class="user-name" href="/register">Регистрация</a>
+                <a class="user-name" href="/login">Вход</a>
+			</div>
+            {% endif %}
+
+		</header>
+		<section class="film">
+		<img class="film-logo" alt="Mortal-Combat" src={% static "img/film-logo.png" %} />
+		<div class="tags">
+			<span class="date">2021</span>
+			<span class="genre">боевик, фэнтези, фантастика</span>
+			<span class="country">США</span>
+			<span class="age">18+</span>
+		</div>
+		<p class="description">Продолжение легендарного фильма из 90-х. Предстоит по-настоящему смертельная битва, где останется только сильнейший</p>
+		<div class="button-group">
+			<a class="button button-primary" data-fancybox data-src="#modal" href="javascript:;" class="callback">Предзаказ фильма</a>
+			<a class="button button-default" data-fancybox href="https://www.youtube.com/watch?v=s8J-22E6mpk&ab_channel=%D1%82%D0%BE%D0%BF%D0%9A%D0%B8%D0%BD%D0%BE">
+				<img class="button-icon" src={% static "img/play.svg" %}/>
+				<span class="button-text">Смотреть трейлер</span>
+			</a>
+		</div>
+	</section>
+	<div class="modal" id="modal" style="display: none; background-color: #010202;">
+		<form action="#">
+			<input type="text" class="modal-input" placeholder="Ваш Email" style="margin-bottom: 10px; padding: 20px; font-size: 18px; color:#fff; background-color:#010202; border: none;"><br>
+			<button type="submit" class="button modal-button" style="align-items: center; position: relative;left: 50%;transform: translate(-50%, 0); background-color: #EA6E20;">Подписаться</button>
+		</form>
+  	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src={% static 'js/jquery.vide.min.js'%}></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<script src={% static 'js/main.js' %}>
+        
+    </script>
+	</div>
+</body>
+</html>

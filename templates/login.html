@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход в систему</title>
+    <link rel='stylesheet' href={% static 'css/style.css' %}/>
+	<link rel='stylesheet' href={% static 'css/normalize.css' %}/>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+</head>
+<body>
+    <div class="app" id="app" style="align-items: center; margin: 0 auto;">
+        <header class="header">
+			<a class="logo" href="/">
+				<img alt="Логотип" class="logo-image" src={% static "img/logo.svg" %}/>
+			</a>
+        </header>
+        <div class="wrapper" style=" padding-top: 140px;">
+            <h2 style="text-align: center; font-size: 32px;">Вход в систему</h2>
+            <form action="" method="POST" style="align-items: center; text-align: center;">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Логин" style="padding: 10px 25px; margin-bottom: 25px; color: #fff; font-size: 16px;line-height: 20px; background: #010202;"><br>
+                <input type="password" name="password" placeholder="Пароль" style="padding: 10px 25px; background: #010202;margin-bottom: 25px; color: #FFFFFF;" ><br>
+                <input type="submit" class="button button-primary" value="Вход" style="margin-bottom: 10px;">
+		    </form>
+            <span style="text-align: center; display: block;">Впервые в системе? <a  style="color: #EA6E20; text-decoration:none;" href={% url 'register' %} > Регистрация </a></span>
+        </div>
+    </div>
+</body>
+</html>
